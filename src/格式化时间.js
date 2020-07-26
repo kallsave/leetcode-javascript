@@ -6,7 +6,6 @@ function repeatString(str, n) {
   return new Array(n + 1).join(str)
 }
 
-
 function paddingLeftZero(str, length) {
   return repeatString('0', length) + str
 }

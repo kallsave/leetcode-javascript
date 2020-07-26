@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/kallsave/leetcode-javascript/issues"
   },
-  "homepage": "https://github.com/kallsave/leetcode-javascript#readme"
+  "homepage": "https://github.com/kallsave/leetcode-javascript#readme",
+  "dependencies": {
+    "mathjs": "^7.1.0"
+  }
 }
