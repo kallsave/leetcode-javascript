@@ -13,12 +13,13 @@ function getMax(arr) {
   let isBreak = false
 
   for (let i = 0; i < n; i++) {
-    const concat = dp[i] + arr[i + 1]
+    const nextItem = arr[i + 1]
+    const concat = dp[i] + nextItem
     if (concat < 0) {
-      dp[i + 1] = isBreak ? arr[i + 1] : dp[i]
+      dp[i + 1] = isBreak ? nextItem : dp[i]
       isBreak = true
     } else {
-      dp[i + 1] = isBreak ? arr[i + 1] : concat
+      dp[i + 1] = isBreak ? nextItem : concat
       isBreak = false
     }
     max = Math.max(max, dp[i + 1])

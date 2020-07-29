@@ -14,3 +14,14 @@ console.log(3 - '2')
 
 // 数字转字符串
 console.log(3 + '2')
+
+// undefined转字符串
+const obj = {}
+const str = '+' + obj.name;
+console.log(str)
+
+if (/^undefined$/.test(obj.valid)) {
+  console.log(`undefined被隐形转换成字符串'undefined'`)
+}
+
+

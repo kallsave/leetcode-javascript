@@ -8,12 +8,12 @@ function generaterTime(timeString, slice) {
   const regExp = new RegExp('\\d+', 'g')
   const regArr = timeString.match(regExp)
 
-  let hoursStart = Number(regArr[0])
-  let minutesStart = Number(regArr[1])
-  let hoursEnd = Number(regArr[2])
-  let minutesEnd = Number(regArr[3])
+  let startHours = Number(regArr[0])
+  let startMinutes = Number(regArr[1])
+  let endHours = Number(regArr[2])
+  let endMinutes = Number(regArr[3])
 
-  let diff = hoursEnd * 60 + minutesEnd - hoursStart * 60 - minutesStart
+  let diff = endHours * 60 + endMinutes - startHours * 60 - startMinutes
 
   if (diff < 0) {
     diff += 24 * 60
@@ -22,10 +22,10 @@ function generaterTime(timeString, slice) {
   const result = []
 
   const part = [
-    hoursStart,
-    minutesStart,
-    hoursStart,
-    minutesStart,
+    startHours,
+    startMinutes,
+    startHours,
+    startMinutes,
   ]
 
   while (diff > 0) {
