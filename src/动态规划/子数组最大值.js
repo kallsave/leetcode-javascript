@@ -12,17 +12,41 @@ function getMax(arr) {
   let max = arr[0]
   let isBreak = false
 
-  for (let i = 0; i < n; i++) {
-    const nextItem = arr[i + 1]
-    const concat = dp[i] + nextItem
+  for (let i = 1; i < n; i++) {
+    const currentItem = arr[i]
+    const concat = dp[i - 1] + currentItem
     if (concat < 0) {
-      dp[i + 1] = isBreak ? nextItem : dp[i]
+      dp[i] = isBreak ? currentItem : dp[i - 1]
       isBreak = true
     } else {
-      dp[i + 1] = isBreak ? nextItem : concat
+      dp[i] = isBreak ? currentItem : concat
       isBreak = false
     }
-    max = Math.max(max, dp[i + 1])
+    max = Math.max(max, dp[i])
+  }
+  return max
+}
+
+function getMax(arr) {
+  const n = arr.length - 1
+  // 初始化状态
+  let dpCurrent = arr[0]
+  let dpNext
+  let max = dpCurrent
+  let isBreak = false
+
+  for (let i = 1; i < n; i++) {
+    const currentItem = arr[i]
+    const concat = dpCurrent + currentItem
+    if (concat < 0) {
+      dpNext = isBreak ? currentItem : dpCurrent
+      isBreak = true
+    } else {
+      dpNext = isBreak ? currentItem : concat
+      isBreak = false
+    }
+    max = Math.max(max, dpCurrent)
+    dpCurrent = dpNext
   }
   return max
 }
