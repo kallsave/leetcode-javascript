@@ -1,29 +1,39 @@
 
 // 用dp[k, n]表示在n层楼中有K个鸡蛋,最少花费的步骤
 function getMin(K, N) {
+
   const dp = []
-  dp[0] = []
+
   for (let k = 1; k <= K; k++) {
     if (!dp[k]) {
-      dp[k] = []
-      dp[k][0] = 0
+      dp[k] = [0]
     }
-    for (let n = 1; n <= N; n++) {
-      dp[0][n] = 0
-      for (let e = 1; e <= n; e++) {
-        if (!dp[k][n]) {
-          dp[k][n] = n
-        }
-        dp[k][n] = Math.min(
-          dp[k][n],
+    for (let n = 1; n <=N; n++) {
+      if (k === 1) {
+        dp[k][n] = n
+        continue
+      }
+      if (n === 1) {
+        dp[k][n] = 1
+        continue
+      }
+      // 在第i层楼扔
+      let min = n
+      for (let i = 1; i <n; i++) {
+        min = Math.min(
+          min,
           Math.max(
-            dp[k - 1][e - 1],
-            dp[k][e - 1]
-          ) + 1
+            // 碎了
+            dp[k - 1][i - 1] + 1,
+            // 没碎
+            dp[k][n - i] + 1
+          )
         )
       }
+      dp[k][n] = min
     }
   }
+
   return dp[K][N]
 }
 
