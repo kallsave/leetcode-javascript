@@ -1,3 +1,6 @@
+// 在一栋楼的某层楼扔下鸡蛋,鸡蛋会碎,而这层楼的下一层楼扔下鸡蛋不会碎
+// 现知道可用鸡蛋为k,这栋楼的层数为n
+// 问最少需要扔多少次鸡蛋可以知道临界楼层的层数
 
 // 用dp[k, n]表示在n层楼中有K个鸡蛋,最少花费的步骤
 function getMin(K, N) {
@@ -17,8 +20,8 @@ function getMin(K, N) {
         dp[k][n] = 1
         continue
       }
-      // 在第i层楼扔
       let min = n
+      // 在第i层楼扔
       for (let i = 1; i <n; i++) {
         min = Math.min(
           min,

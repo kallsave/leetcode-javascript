@@ -43,6 +43,7 @@ function knapsack(weightList, valueList, W) {
       if (w === 0) {
         dp[w][i] = 0
       }
+
       if (i === 0) {
         if (w - weight >= 0) {
           dp[w][i] = value

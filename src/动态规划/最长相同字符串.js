@@ -1,3 +1,5 @@
+// 求一个字符串中的一段最长字符串,如果有相同长度都需要返回
+
 const str = 'dfdgkkkkketyyfdppppptwtll'
 
 function getMax(str) {

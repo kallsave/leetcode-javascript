@@ -1,5 +1,3 @@
-
-
 function unionArrayEs5() {
   const args = arguments
   return Array.prototype.reduce.call(args, function(prev, next) {

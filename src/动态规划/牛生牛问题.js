@@ -13,31 +13,24 @@ function getCount(n) {
   const de = []
 
   cr[0] = 0
-  de[0] = 0
   dp[0] = 1
 
   cr[1] = 0
-  de[1] = 0
   dp[1] = 1
 
   cr[2] = 0
-  de[2] = 0
   dp[2] = 1
 
   cr[3] = 1
-  de[3] = 0
   dp[3] = 2
 
   cr[4] = 0
-  de[4] = 0
   dp[4] = 2
 
   cr[5] = 1
-  de[5] = 0
   dp[5] = 3
 
   cr[6] = 1
-  de[6] = 1
   dp[6] = 3
 
   // 用dp[i]表示第i天存活的牛数
